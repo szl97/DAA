@@ -61,12 +61,12 @@ def classify_blue_source(light_box: Box, car_box: Box) -> str:
     rel_x = (cx - car_box.x1) / max(1, car_box.x2 - car_box.x1)
     rel_y = (cy - car_box.y1) / max(1, car_box.y2 - car_box.y1)
     if rel_y < 0.45:
-        return "车身/挡风玻璃蓝光反射"
+        return "Body glare"
     if rel_x < 0.45:
-        return "左侧车灯蓝光"
+        return "Left lamp"
     if rel_x > 0.55:
-        return "右侧车灯蓝光"
-    return "车灯/车牌附近蓝光"
+        return "Right lamp"
+    return "Lamp/plate glare"
 
 
 def draw_label(img: np.ndarray, text: str, org: Tuple[int, int], color=(0, 0, 255)) -> None:
